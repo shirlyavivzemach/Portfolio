@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://127.0.0.1:5500/GuessMe-Ex-startHere/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>My App</title>
+  <link rel="stylesheet" href="./My App_files/bootstrap.css">
+  <link rel="stylesheet" href="./My App_files/app.css">
+</head>
+
+<body>
+  <header class="box">
+    <img src="./My App_files/logo.png">
+    <h1>Guess Who</h1>
+  </header>
+
+  <main>
+    <section class="game-start">
+      <h2>Think of Someone...</h2>
+      <button onclick="onStartGuessing()" class="btn btn-lg btn-success">I'm Ready!</button>
+    </section>
+
+    
+    <section class="quest" style="display: none">
+      <h2></h2>
+      <button onclick="onUserResponse(&#39;yes&#39;)" class="btn btn-info yes">Yes</button>
+      <button onclick="onUserResponse(&#39;no&#39;)" class="btn btn-danger no">No</button>
+    </section>
+
+
+
+    <section class="new-quest" style="display: none">
+      <h2>OK, I gave up...</h2>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="newGuess" class="col-sm-6 control-label">You thought of: </label>
+          <div class="col-sm-6">
+            <input name="newGuess" type="txt" class="form-control" id="newGuess" placeholder="Your Guess" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newQuest" class="col-sm-6 control-label">Question to differentiate</label>
+          <div class="col-sm-6">
+            <input name="newQuest" type="txt" class="form-control" id="newQuest" placeholder="The answer is YES for yours" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" onclick="onAddGuess(); return false;" class="btn btn-secondary">
+              Make me Smarter!
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    cofferight © 2016
+  </footer>
+  <div class="modal">
+    <h5>Yes, I knew it!</h5>
+    <h6>I dont know...teach me!</h6>
+  </div>
+
+  <script src="./My App_files/jquery.js.הורדה"></script>
+  <script src="./My App_files/quest-service.js.הורדה"></script>
+  <script src="./My App_files/quest-controller.js.הורדה"></script>
+  <script src="./My App_files/quest-storage.js.הורדה"></script>
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+ 
+    
+    <title>Minesweeper Game</title>
+</head>
+
+
+<body onload="initGame()">
+    <h1>Mine Sweeper</h1>
+    <div class = "time-log"></div>
+
+    <button start class = "Start" onclick="setLevel(this)">Reset</button> 
+    <button button class = "Stop" onclick="stop(this)">Stop</button> 
+     
+   <div class="container" >
+
+ 
+    <table class="table" border="1" cellpadding="10">
+        <tbody class="board">
+            
+            
+        </tbody>
+    </table>
+</div>
+<div clss ="emogi"></div>
+    <div class="gameOver" >
+        <h2><h2>
+
+    </div>
+   
+        <br>
+        <div class="edit-contauner">
+            
+            <button  class = "levels easy-level" onclick="setLevel(this)">Easy</button>
+            <button  class = "levels medium-level" onclick="setLevel(this)">Medium</button>
+            <button  class = "levels hard-level" onclick="setLevel(this)">Hard</button>
+        </div>
+   
+    
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

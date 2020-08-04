@@ -1,0 +1,73 @@
+'use strict';
+
+// NOTE: This is a global used only in the controller
+var gLastRes = null;
+
+$(document).ready(init);
+
+function init() {
+    createQuestsTree();
+}
+
+function onStartGuessing() {
+    // TODO: hide the game-start section
+    const $elGameStart=$('.game-start')
+    $elGameStart.hide();
+    renderQuest();
+    // TODO: show the quest section
+    const $elQuest = $('.quest')
+    $elQuest.show();
+}
+
+function renderQuest() {
+    // TODO: select the <h2> inside quest and update
+    // its text by the currQuest text
+    var currQest =getCurrQuest()
+    $('h2').text(currQest.txt)
+
+}
+
+function onUserResponse(res) {
+
+    // If this node has no children
+    if (isChildless(getCurrQuest())) {
+        if (res === 'yes') {
+            alert('Yes, I knew it!');
+        
+            // TODO: improve UX
+
+        } else {
+            var $elQuest=$('.quest')
+            $elQuest.hide();
+            alert('I dont know...teach me!')
+            var $elQuestNew=$('.new-quest')
+            $elQuestNew.show();
+          
+            // TODO: hide and show new-quest section
+        }
+    } else {
+        // TODO: update the lastRes global var
+        moveToNextQuest(res);
+        renderQuest();
+    }
+}
+
+function onAddGuess() {
+    // TODO: Get the inputs' values
+    // TODO: Call the service addGuess
+    var elNewQuestTxt=$('#newQuest')
+    elNewQuestTxt.value()
+    var elNewGuessTxt=$('#newGuess')
+    elNewGuessTxt.value()
+    onRestartGame();
+    addGuess(newQuestTxt, newGuessTxt, lastRes)
+}
+
+
+function onRestartGame() {
+    $('.new-quest').hide();
+    $('.game-start').show();
+    gLastRes = null;
+
+}
+

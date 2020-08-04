@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book Shop</title>
+</head>
+
+<body onload="onInit()">
+    <h1>My Book Shop</h1>
+    <div class="modal" hidden>
+        <div class="modal-img"></div>
+        <h5></h5>
+        <h6></h6>
+        <div class="modal-footer">
+        <p></p>
+        </div>
+        <div class="rate">
+        <button class="increase" onclick="onClickIncrease()">+</button> 
+        <span>   </span>
+        <button class="decrease" onclick="onClickDecrease()">-</button> 
+    </div>
+    <button onclick="onCloseModal()">Close</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="books-container">
+        </tbody>
+    </table>
+
+    <button class="add-btn" onclick="onAddBook()">Add new book</button>
+ 
+    <script src="js/util.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/conroller.js"></script>
+</body>
+
+</html>
